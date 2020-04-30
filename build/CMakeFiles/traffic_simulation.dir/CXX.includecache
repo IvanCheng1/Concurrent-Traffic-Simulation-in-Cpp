@@ -1,0 +1,34 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/IvanCheng/Documents/GitHub/Concurrent-Traffic-Simulation-in-Cpp/src/TrafficLight.cpp
+iostream
+-
+random
+-
+TrafficLight.h
+/Users/IvanCheng/Documents/GitHub/Concurrent-Traffic-Simulation-in-Cpp/src/TrafficLight.h
+
+/Users/IvanCheng/Documents/GitHub/Concurrent-Traffic-Simulation-in-Cpp/src/TrafficLight.h
+mutex
+-
+deque
+-
+condition_variable
+-
+TrafficObject.h
+/Users/IvanCheng/Documents/GitHub/Concurrent-Traffic-Simulation-in-Cpp/src/TrafficObject.h
+
+/Users/IvanCheng/Documents/GitHub/Concurrent-Traffic-Simulation-in-Cpp/src/TrafficObject.h
+vector
+-
+thread
+-
+mutex
+-
+
