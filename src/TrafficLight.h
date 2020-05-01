@@ -40,7 +40,7 @@ class TrafficLight : private TrafficObject
 public:
     // constructor / desctructor
     TrafficLight();
-    ~TrafficLight();
+    // ~TrafficLight(); // removed during Task 6
 
     // getters / setters
     TrafficLightPhase getCurrentPhase();

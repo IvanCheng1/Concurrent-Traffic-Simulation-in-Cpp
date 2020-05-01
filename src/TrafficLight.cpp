@@ -47,7 +47,7 @@ void TrafficLight::waitForGreen()
     // FP.5b : add the implementation of the method waitForGreen, in which an infinite while-loop 
     // runs and repeatedly calls the receive function on the message queue. 
     // Once it receives TrafficLightPhase::green, the method returns.
-
+    
     while (true) {
         // sleep every start of while loop to eliminate CPU burning up
         std::this_thread::sleep_for(std::chrono::milliseconds(1));
@@ -55,7 +55,7 @@ void TrafficLight::waitForGreen()
         // calls the receive function on the message queue
         TrafficLightPhase msg = _messages.receive(); 
 
-        if (msg == green) {
+        if (msg == TrafficLightPhase::green) {
             return;
         }
     }
@@ -95,21 +95,17 @@ void TrafficLight::cycleThroughPhases()
 
         auto time_now = std::chrono::system_clock::now();
         auto time_difference = time_now - time_before;
+        auto time = std::chrono::duration_cast<std::chrono::milliseconds>(time_difference);
 
-        if (time_difference.count()*1000 >= cycle) {
-            if (_currentPhase == red) {
-                _currentPhase = green;
+        if (time.count() >= cycle) {
+            if (_currentPhase == TrafficLightPhase::red) {
+                _currentPhase = TrafficLightPhase::green;
             } else {
-                _currentPhase = red;
+                _currentPhase = TrafficLightPhase::red;
             }
+            // send an update to message queue
+            _messages.send(std::move(_currentPhase));
+            time_before = std::chrono::system_clock::now();
         }
-
-        // send an update to message queue
-        _messages.send(std::move(_currentPhase));
-
-        auto time_before = std::chrono::system_clock::now();
-
     }
-
-
 }
