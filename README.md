@@ -1,4 +1,4 @@
-# Program a Concurrent Traffic Simulation in C++
+# Concurrent Traffic Simulation in C++
 
 This is the project for the fourth course in the [Udacity C++ Nanodegree Program](https://www.udacity.com/course/c-plus-plus-nanodegree--nd213): Concurrency. 
 
